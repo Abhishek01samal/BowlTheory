@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chow Mein Design System - Warm, Spicy, Street Food Vibes */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - warm noodle tones */
+    --background: 40 30% 97%;
+    --foreground: 25 40% 12%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 25 40% 12%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 25 40% 12%;
+
+    /* Chili Orange - Primary */
+    --primary: 25 95% 50%;
+    --primary-foreground: 40 30% 97%;
+
+    /* Soy Brown - Secondary */
+    --secondary: 25 35% 25%;
+    --secondary-foreground: 40 25% 95%;
+
+    /* Noodle Cream - Muted */
+    --muted: 40 25% 90%;
+    --muted-foreground: 25 20% 40%;
+
+    /* Turmeric Gold - Accent */
+    --accent: 45 90% 55%;
+    --accent-foreground: 25 40% 12%;
+
+    /* Chili Red - Destructive */
+    --destructive: 0 85% 50%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 25 95% 50%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Wok Dark */
+    --sidebar-background: 25 35% 12%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 25 95% 55%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 25 30% 20%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 25 25% 20%;
+    --sidebar-ring: 25 95% 50%;
+
+    /* Custom Chow Mein tokens */
+    --chili: 15 90% 50%;
+    --turmeric: 45 90% 55%;
+    --soy: 25 40% 18%;
+    --noodle: 45 40% 85%;
+    --steam: 40 20% 95%;
+    --wok: 25 30% 8%;
+    --ginger: 35 70% 60%;
+    --scallion: 120 40% 45%;
+
+    /* Gradients */
+    --gradient-flame: linear-gradient(135deg, hsl(15 90% 50%) 0%, hsl(45 90% 55%) 100%);
+    --gradient-wok: linear-gradient(180deg, hsl(25 30% 8%) 0%, hsl(25 35% 18%) 100%);
+    --gradient-steam: linear-gradient(180deg, hsl(40 20% 95% / 0.8) 0%, transparent 100%);
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 40 25% 90%;
+
+    --card: 25 35% 12%;
+    --card-foreground: 40 25% 90%;
+
+    --popover: 25 35% 12%;
+    --popover-foreground: 40 25% 90%;
+
+    --primary: 25 95% 55%;
+    --primary-foreground: 25 35% 8%;
+
+    --secondary: 40 25% 85%;
+    --secondary-foreground: 25 35% 12%;
+
+    --muted: 25 25% 18%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 45 85% 50%;
+    --accent-foreground: 25 35% 8%;
+
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 25 25% 20%;
+    --input: 25 25% 20%;
+    --ring: 25 95% 55%;
+
+    --sidebar-background: 25 35% 6%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 25 95% 55%;
+    --sidebar-primary-foreground: 25 35% 8%;
+    --sidebar-accent: 25 30% 15%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 25 25% 15%;
+    --sidebar-ring: 25 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-mono {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  .gradient-flame {
+    background: linear-gradient(135deg, hsl(var(--chili)) 0%, hsl(var(--turmeric)) 100%);
+  }
+
+  .text-gradient-flame {
+    background: linear-gradient(135deg, hsl(var(--chili)) 0%, hsl(var(--turmeric)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+/* Hero Section Animations */
+@keyframes word-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(10px) scale(0.95);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes grid-draw {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.15;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-5px) translateX(-3px);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-15px) translateX(7px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes steam-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  margin-right: 0.3em;
+}
+
+.grid-line {
+  stroke: hsl(var(--turmeric) / 0.15);
+  stroke-width: 0.5;
+  stroke-dasharray: 1000;
+  animation: grid-draw 2s ease-out forwards;
+}
+
+.detail-dot {
+  fill: hsl(var(--chili));
+  opacity: 0;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.corner-element {
+  position: absolute;
+  opacity: 0;
+  animation: word-appear 0.8s ease-out forwards;
+}
+
+.floating-element {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: hsl(var(--turmeric));
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+  animation-play-state: paused;
+}
