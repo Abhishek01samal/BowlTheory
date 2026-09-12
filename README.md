@@ -6,7 +6,7 @@
 
 ## How can I edit this code?
 iuihdas
-There are several ways of editing your application.
+There are several ways of editing your application.s ka kc 
 
 **Use Lovable**absbcu
 
